@@ -76,7 +76,9 @@ public class ListaProductos {
      * si ya ha sido asignado devuelve null
      */ 
     public Producto registraProducto(Producto prod) {
-        
+    	if(parametro_vacio(prod.getcode())) {
+         	return null;
+        }
         if (listaP.containsKey(prod.getcode())) {
            return null;
         }
@@ -92,8 +94,11 @@ public class ListaProductos {
      * @return el producto que se ha descartado
      */
     public Producto descartaProducto(String codigo) { 
-        
+    	
         Producto prod = encuentraProducto(codigo);
+        if(parametro_vacio(codigo)) {
+        	return null;
+        }
         if (prod != null) {
 	        listaP.remove(codigo);
 	        n--;
@@ -107,7 +112,9 @@ public class ListaProductos {
      */
     public Producto encuentraProducto(String codigo) { 
         Producto prod = null;
-        
+        if(parametro_vacio(codigo)) {
+        	return null;
+        }
         if (!listaP.containsKey(codigo)) {
             return prod;
         }
