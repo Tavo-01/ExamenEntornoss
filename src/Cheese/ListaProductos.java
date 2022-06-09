@@ -49,7 +49,12 @@ public class ListaProductos {
     
         if ((campo.replace(" ","").isEmpty()) || (campo == null))  return true; else return false;
     }
-
+    /**
+     * Lista el nombre del producto y en caso de no tener se le asigna 
+     * el nombre "nonamed"
+     * 
+     * @param nombre String a analizar si está vacio o no
+     */
     public ListaProductos(String nombre) {
     	if (parametro_vacio(nombre)) {
     		this.nombreLista = "noNamed";
@@ -58,10 +63,18 @@ public class ListaProductos {
     	this.nombreLista = nombre;
     	}
     }
+
+    /**
+     * @return Devuelve el numero total de productos 
+     */
     public int totalProductos(){
             return this.getNumProductos();
     }
-        
+    /**
+     * @param prod de tipo Producto, 
+     * @return el producto registrado si no tiene codigo,
+     * si ya ha sido asignado devuelve null
+     */ 
     public Producto registraProducto(Producto prod) {
         
         if (listaP.containsKey(prod.getcode())) {
@@ -72,7 +85,12 @@ public class ListaProductos {
         this.setNumProductos(n);
         return prod;
     }
-
+    /**
+     * Elimina el codigo del producto del hashmap si existe y lo resta del 
+     * numero total de productos.
+     * @param codigo String para encontrar el producto y eliminarlo 
+     * @return el producto que se ha descartado
+     */
     public Producto descartaProducto(String codigo) { 
         
         Producto prod = encuentraProducto(codigo);
@@ -83,7 +101,10 @@ public class ListaProductos {
         }
         return prod;
     }
-
+    /**
+     * @param codigo String que se usa para encontrar el producto que se busca
+     * @return null si el producto buscado no tiene codigo (no está), si tiene devuelve el codigo
+     */
     public Producto encuentraProducto(String codigo) { 
         Producto prod = null;
         
