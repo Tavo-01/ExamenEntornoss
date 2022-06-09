@@ -1,8 +1,8 @@
 /*
-*	grupo  :
-*	alumno :
-*	n.exp. :
-*	fecha  :
+*	grupo  : GDAM21
+*	alumno : Gustavo Pay Pereira
+*	n.exp. : 7256
+*	fecha  : 09/06/2022
  */
 package Cheese;
 
